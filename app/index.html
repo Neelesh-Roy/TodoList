@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>contactsApp</title>
+
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- build:css styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:css styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+    
+  </head>
+  <body>
+    <!--[if lt IE 10]>
+      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+          <section id="todoapp">
+            <header id="header">
+              <h1>TODOS application</h1>
+              <input type="text" placeholder="what needs to be done?" autofocus id="new-todo">
+            </header>
+
+            <section id="main">
+              <input type="checkbox" id="toggle-all">
+              <label for="toggle-all">Mark all as complete</label>
+              <ul id="todo-list">
+                <!--Populate todos here-->
+              </ul>
+            </section>
+
+            <footer id="footer">
+              <!--Populate footer here-->
+            </footer>
+          </section>
+          <div id="info">
+            <p>Double click to edit a todo</p>
+            <p>written by <a href="#">Neelesh Roy</a></p>
+          </div>
+    
+    <!--Templates-->
+    <script id="item-template" type="text/template">
+      <div class="view">
+        <input type="checkbox" class="toggle" <%= completed ? 'checked' : '' %>>
+        <label><%- title %></label>
+        <button class="destroy"></button>
+      </div>
+      <input value="<%= title %>" class="edit">
+    </script>
+
+    <script id="stats-template" type="text/template">
+      <span id="todo-count"><strong><%= remaining %></strong>
+        <%= remaining === 1 ? 'item' : 'items' %> left
+      </span>
+      <ul id="filters">
+        <li><a href="#/" class="selected">All</a></li>
+        <li><a href="#/active">active</a></li>
+        <li><a href="#/completed">completed</a></li>
+      </ul>
+      <% if (completed){ %>
+        <button id="clear-completed">Clear Completed (<%= completed %>)</button>
+      <% } %>
+    </script>
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <!--<script>
+      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+      e.src='https://www.google-analytics.com/analytics.js';
+      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+      ga('create','UA-XXXXX-X');ga('send','pageview');
+    </script>-->
+
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/bower_components/underscore/underscore.js"></script>
+    <script src="/bower_components/backbone/backbone.js"></script>
+    <script src="/bower_components/backbone.localStorage/backbone.localStorage.js"></script>
+
+    <!-- endbower -->
+    <!-- endbuild -->
+    
+    <!-- build:js scripts/plugins.js -->
+    <script src="/bower_components/bootstrap/js/affix.js"></script>
+    <script src="/bower_components/bootstrap/js/alert.js"></script>
+    <script src="/bower_components/bootstrap/js/dropdown.js"></script>
+    <script src="/bower_components/bootstrap/js/tooltip.js"></script>
+    <script src="/bower_components/bootstrap/js/modal.js"></script>
+    <script src="/bower_components/bootstrap/js/transition.js"></script>
+    <script src="/bower_components/bootstrap/js/button.js"></script>
+    <script src="/bower_components/bootstrap/js/popover.js"></script>
+    <script src="/bower_components/bootstrap/js/carousel.js"></script>
+    <script src="/bower_components/bootstrap/js/scrollspy.js"></script>
+    <script src="/bower_components/bootstrap/js/collapse.js"></script>
+    <script src="/bower_components/bootstrap/js/tab.js"></script>
+    <!-- endbuild -->
+    <!-- build:js scripts/main.js -->
+    <script src="scripts/models/todo.js"></script>
+    <script src="scripts/collections/todos.js"></script>
+    <script src="scripts/views/todos.js"></script>
+    <script src="scripts/views/app.js"></script>
+    <script src="scripts/routers/router.js"></script>
+    <script src="scripts/app.js"></script>
+    <!-- endbuild -->
+  </body>
+</html>
